@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hola, So ♡</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app" aria-label="Carta interactiva para So">
+  <section class="screen active" id="screen1">
+    <div class="reference-page portrait panel-1">
+      <img src="assets/panel1.png" alt="Hola So, Miffy sostiene un ramo de flores" draggable="false">
+      <button type="button" class="hotspot bouquet-hotspot" data-next="2" aria-label="Tocar el ramo para continuar"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen2">
+    <div class="reference-page portrait panel-2">
+      <img src="assets/panel2.png" alt="Miffy y el mensaje de la carta" draggable="false">
+      <button type="button" class="hotspot continue-hotspot" data-next="3" aria-label="Continuar"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen3">
+    <div class="reference-page portrait panel-3">
+      <img src="assets/panel3.png" alt="Miffy sostiene una pequeña flor" draggable="false">
+      <button type="button" class="hotspot continue-hotspot" data-next="4" aria-label="Continuar"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen4">
+    <div class="reference-page portrait panel-4">
+      <img src="assets/panel4.png" alt="Miffy en su habitación con el mensaje de la carta" draggable="false">
+      <button type="button" class="hotspot continue-hotspot" data-next="5" aria-label="Continuar"></button>
+    </div>
+  </section>
+  <section class="screen selection-screen" id="screen5">
+    <div class="reference-page portrait selection-page">
+      <img src="assets/panel5.png" alt="Miffy invita a elegir entre rosas, lirios, claveles y peonías" draggable="false">
+      <button type="button" class="hotspot flower-hotspot rose" data-flower="rose" aria-label="Elegir Rosas"></button>
+      <button type="button" class="hotspot flower-hotspot lily" data-flower="lily" aria-label="Elegir Lirios"></button>
+      <button type="button" class="hotspot flower-hotspot carnation" data-flower="carnation" aria-label="Elegir Claveles"></button>
+      <button type="button" class="hotspot flower-hotspot peony" data-flower="peony" aria-label="Elegir Peonías"></button>
+      <button type="button" class="hotspot home-hotspot" data-home="1" aria-label="Volver al inicio"></button>
+    </div>
+    <button class="final-message-button" id="finalMessageButton" type="button" hidden><span class="heart">♡</span> Cuando hayas visto todo <span class="heart">♡</span></button>
+  </section>
+  <section class="screen" id="screen6">
+    <div class="reference-page portrait panel-6">
+      <img src="assets/panel6.png" alt="Significado de las rosas" draggable="false">
+      <button type="button" class="hotspot back-hotspot" data-back="5" aria-label="Volver a elegir una flor"></button>
+      <button type="button" class="hotspot detail-home-hotspot" data-home="1" aria-label="Volver al inicio"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen7">
+    <div class="reference-page portrait panel-7">
+      <img src="assets/panel7.png" alt="Significado de los lirios" draggable="false">
+      <button type="button" class="hotspot back-hotspot" data-back="5" aria-label="Volver a elegir una flor"></button>
+      <button type="button" class="hotspot detail-home-hotspot" data-home="1" aria-label="Volver al inicio"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen8">
+    <div class="reference-page portrait panel-8">
+      <img src="assets/panel8.png" alt="Significado de los claveles" draggable="false">
+      <button type="button" class="hotspot back-hotspot" data-back="5" aria-label="Volver a elegir una flor"></button>
+      <button type="button" class="hotspot detail-home-hotspot" data-home="1" aria-label="Volver al inicio"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen9">
+    <div class="reference-page portrait panel-9">
+      <img src="assets/panel9.png" alt="Significado de las peonías" draggable="false">
+      <button type="button" class="hotspot back-hotspot" data-back="5" aria-label="Volver a elegir una flor"></button>
+      <button type="button" class="hotspot detail-home-hotspot" data-home="1" aria-label="Volver al inicio"></button>
+    </div>
+  </section>
+  <section class="screen" id="screen10">
+    <div class="final-wrap">
+      <div class="reference-page landscape">
+        <img src="assets/panel10.png" alt="Miffy sostiene un ramo y aparece el mensaje Gracias por existir en mi vida" draggable="false">
+      </div>
+      <button class="restart" id="restart" type="button">♡ volver a empezar ♡</button>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

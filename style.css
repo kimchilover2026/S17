@@ -1,0 +1,64 @@
+
+:root{
+  --pink:#c84f67;
+  --focus:#8e3047;
+  --bg:#f8d9df;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:var(--bg)}
+body{overflow-x:hidden;overflow-y:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button{font:inherit;-webkit-appearance:none;appearance:none}
+#app{width:100%;min-height:100svh}
+.screen{display:none;width:100%;min-height:100svh;padding:0;place-items:center;overflow:hidden}
+.screen.active{display:grid;animation:pageIn .24s ease both}
+.reference-page{position:relative;margin:0;line-height:0;user-select:none;-webkit-user-select:none;background:var(--bg);overflow:visible;flex:none}
+/* Each panel keeps its ORIGINAL aspect ratio. This prevents mobile distortion/cropping. */
+.reference-page.portrait{width:min(100vw,calc(100svh * var(--ratio)));aspect-ratio:var(--ratio);height:auto}
+.reference-page.portrait img{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.reference-page.landscape{width:min(100vw,calc(100svh * 2.1375));aspect-ratio:2.1375;height:auto}
+.reference-page.landscape img{display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.panel-1{--ratio:0.7149321267}
+.panel-2{--ratio:0.5950226244}
+.panel-3{--ratio:0.6221719457}
+.panel-4{--ratio:0.7511312217}
+.panel-5{--ratio:0.6949541284}
+.panel-6{--ratio:0.6376146782}
+.panel-7{--ratio:0.6422018349}
+.panel-8{--ratio:0.75}
+.panel-9{--ratio:0.8725}
+
+.hotspot{position:absolute;padding:0;margin:0;border:0;background:transparent;cursor:pointer;border-radius:999px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;outline:none}
+.hotspot:focus-visible{outline:3px solid var(--focus);outline-offset:3px;background:rgba(255,255,255,.12)}
+@media (hover:hover) and (pointer:fine){.hotspot:hover{background:rgba(255,255,255,.045)}}
+
+/* Hotspots are aligned to the ACTUAL controls drawn in each source image. */
+.bouquet-hotspot{left:45%;top:34%;width:43%;height:57%}
+.continue-hotspot{left:31%;top:84%;width:38%;height:11%}
+.flower-hotspot{width:31%;height:23%;}
+.flower-hotspot.rose{left:15%;top:38%}
+.flower-hotspot.lily{left:53%;top:38%}
+.flower-hotspot.carnation{left:15%;top:62%}
+.flower-hotspot.peony{left:53%;top:62%}
+.home-hotspot,.detail-home-hotspot{right:3%;bottom:2%;width:14%;height:11%}
+.back-hotspot{left:3%;bottom:2%;width:14%;height:11%}
+
+.selection-screen{display:none;position:relative;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden}
+.selection-screen.active{display:flex}
+.selection-page{flex:none}
+.final-message-button{position:relative;z-index:5;left:auto;bottom:auto;transform:none;border:1.5px solid var(--pink);background:rgba(255,244,245,.98);color:var(--pink);border-radius:999px;padding:8px 20px;min-height:44px;cursor:pointer;box-shadow:0 3px 10px rgba(100,45,58,.10);font-size:15px;letter-spacing:.1px;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.final-message-button[hidden]{display:none}
+.final-message-button:hover{background:#ffe9ed;transform:translateY(-1px)}
+.final-message-button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.final-message-button .heart{padding:0 5px}
+.final-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;min-height:100svh;justify-content:center}
+.restart{border:1px solid var(--pink);background:#fff3f3;color:var(--pink);border-radius:999px;padding:9px 19px;cursor:pointer;min-height:44px;box-shadow:0 4px 14px rgba(100,45,58,.12);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.restart:hover{background:#ffe9ed;transform:translateY(-1px)}
+.restart:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.screen.active{animation:none}.restart:hover,.final-message-button:hover{transform:none}}
+@media(max-width:560px){
+  .screen{min-height:100svh}
+  .final-message-button{font-size:14px;padding:7px 16px;min-height:44px}
+  .hotspot{min-height:0}
+}
