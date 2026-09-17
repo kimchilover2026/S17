@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120d12">
+<title>Para So · una pequeña historia</title>
+<link rel="preload" as="image" href="assets/panel1.png">
+<link rel="preload" as="image" href="assets/panel5.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true">
+  <span class="orb orb-a"></span><span class="orb orb-b"></span>
+  <span class="petal p1">♡</span><span class="petal p2">✦</span><span class="petal p3">♡</span>
+</div>
+
+<main id="story" aria-label="Historieta interactiva para So">
+  <header class="topbar">
+    <button class="brand" id="brandHome" aria-label="Volver al comienzo">
+      <span>PARA</span><strong>SO</strong><i>♡</i>
+    </button>
+    <div class="chapter" aria-live="polite">
+      <span class="chapter-label">HISTORIA</span>
+      <span class="chapter-number" id="chapterNumber">01</span>
+      <span class="chapter-rule"></span>
+      <span class="chapter-total">10</span>
+    </div>
+    <button class="sound" id="soundBtn" aria-label="Activar sonido" aria-pressed="false">
+      <span class="sound-icon">♪</span><span class="sound-text">ambiente</span>
+    </button>
+  </header>
+
+  <div class="progress"><span id="progressBar"></span></div>
+
+  <section class="stage" id="stage">
+    <div class="scene-shadow"></div>
+    <div class="scene-frame" id="sceneFrame">
+      <div class="scene" id="scene"></div>
+    </div>
+
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Escena anterior">←</button>
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Siguiente escena">→</button>
+
+    <div class="gesture-hint" id="gestureHint">
+      <span>deslizá para continuar</span><b>↔</b>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-note" id="footerNote">Una historia pequeña, hecha con mucho cariño.</div>
+    <div class="dots" id="dots" aria-label="Progreso de la historia"></div>
+    <div class="footer-action" id="footerAction"></div>
+  </footer>
+</main>
+
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <div class="intro-kicker">UNA CARTITA PARA</div>
+    <div class="intro-name">So<span>♡</span></div>
+    <p>Hay cosas que no se pueden regalar<br>en un ramo. Así que hice esto.</p>
+    <button id="openStory">Abrir la historia <span>→</span></button>
+    <div class="intro-sign">para la persona que hace especial lo cotidiano</div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
