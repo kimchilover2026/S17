@@ -1,0 +1,50 @@
+:root{
+  --pink:#c84f67;
+  --focus:#8e3047;
+  --bg:#f8d9df;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:var(--bg)}
+body{overflow-x:hidden;overflow-y:hidden;display:block}
+button{font:inherit}
+#app{width:100%;height:100svh;min-height:100dvh;overflow:hidden}
+.screen{display:none;width:100%;height:100svh;min-height:100dvh;padding:0;place-items:center;overflow:hidden}
+.screen.active{display:grid;animation:pageIn .32s ease both}
+.reference-page{position:relative;margin:0;line-height:0;user-select:none;background:var(--bg);overflow:visible;flex:none}
+.reference-page.portrait{width:auto;height:auto;max-width:100vw;max-height:100svh}
+.reference-page.portrait img{display:block;width:auto;height:auto;max-width:100vw;max-height:100svh;object-fit:contain;touch-action:none;-webkit-user-drag:none}
+.reference-page.landscape{width:min(100vw, 100svh * 2.1375);max-width:100vw;max-height:100svh}
+.reference-page.landscape img{display:block;width:100%;height:auto;max-height:100svh;object-fit:contain;touch-action:none;-webkit-user-drag:none}
+.hotspot{position:absolute;padding:0;margin:0;border:0;background:transparent;cursor:pointer;border-radius:999px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;z-index:2}
+.hotspot:focus-visible{outline:3px solid var(--focus);outline-offset:3px;background:rgba(255,255,255,.12)}
+@media (hover:hover) and (pointer:fine){.hotspot:hover{background:rgba(255,255,255,.035)}}
+.bouquet-hotspot{left:39%;top:39%;width:54%;height:52%}
+.continue-hotspot{left:52%;top:87%;width:31%;height:8%}
+.flower-hotspot{width:28%;height:22%}
+.flower-hotspot.rose{left:17%;top:54%}
+.flower-hotspot.lily{left:54%;top:54%}
+.flower-hotspot.carnation{left:17%;top:78%}
+.flower-hotspot.peony{left:54%;top:78%}
+.home-hotspot,.detail-home-hotspot{right:2%;bottom:2%;width:14%;height:12%}
+.back-hotspot{left:2%;bottom:2%;width:14%;height:12%}
+.selection-screen{display:none;position:relative;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.selection-screen.active{display:flex}
+.selection-page{max-height:100svh!important}
+.final-message-button{position:fixed;z-index:10;left:50%;bottom:max(10px, env(safe-area-inset-bottom));transform:translateX(-50%);border:1.5px solid var(--pink);background:rgba(255,244,245,.97);color:var(--pink);border-radius:999px;padding:9px 18px;min-height:46px;cursor:pointer;box-shadow:0 3px 10px rgba(100,45,58,.10);font-size:15px;letter-spacing:.1px;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.final-message-button[hidden]{display:none}
+.final-message-button:hover{background:#ffe9ed;transform:translateX(-50%) translateY(-1px)}
+.final-message-button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.final-message-button .heart{padding:0 5px}
+.final-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;height:100svh;justify-content:center;padding:8px}
+.restart{border:1px solid var(--pink);background:#fff3f3;color:var(--pink);border-radius:999px;padding:9px 19px;cursor:pointer;min-height:46px;box-shadow:0 4px 14px rgba(100,45,58,.12);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.restart:hover{background:#ffe9ed;transform:translateY(-1px)}
+.restart:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@keyframes pageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.screen.active{animation:none}.restart:hover,.final-message-button:hover{transform:translateX(-50%)}}
+@media(max-width:560px){
+  body{overscroll-behavior:none}
+  .screen{height:100svh;min-height:100svh}
+  .reference-page.portrait{width:auto;height:auto;max-width:100vw;max-height:100svh}
+  .reference-page.portrait img{width:auto;height:auto;max-width:100vw;max-height:100svh}
+  .final-message-button{font-size:14px;padding:8px 15px;min-height:46px;bottom:max(10px, env(safe-area-inset-bottom));max-width:calc(100vw - 24px)}
+}
